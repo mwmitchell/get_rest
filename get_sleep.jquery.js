@@ -1,6 +1,3 @@
-/*
-*
-*/
 function GetSleep(user_opts){
 	
 	var $ = jQuery;
@@ -11,7 +8,7 @@ function GetSleep(user_opts){
 		default_params : {}
 	}
 	
-	var default_opts = $.extend(default_opts, user_opts);
+	var default_opts = $.extend(true, default_opts, user_opts);
 	
 	/*
 	* Converts an object (Hash) into a query string
@@ -33,10 +30,12 @@ function GetSleep(user_opts){
 		if(typeof args[0] == 'string'){ rpath = args.shift() }
 		if(typeof args[0] == 'object'){ rparams = args.shift() }
 		rparams.jsoncallback = '?';
+		params = $.extend(true, default_opts.default_params, rparams);
 		return {
 			callback:args.shift(),
 			uri : (default_opts.base_uri + default_opts.base_path + rpath),
-			params : $.extend(default_opts.default_params, rparams)
+			params : params,
+			query : object_to_query(params)
 		};
 	}
 	
@@ -52,7 +51,10 @@ function GetSleep(user_opts){
 		*/
 		get : function(){
 			opts = extract_request_opts(arguments);
-			$.getJSON(opts.uri, object_to_query(opts.params), opts.callback);
+			var cb = function(data){
+				opts.callback(data, opts);
+			}
+			$.getJSON(opts.uri, opts.query, cb);
 		}
 		
 	}
