@@ -1,3 +1,6 @@
+/*
+*
+*/
 function GetSleep(user_opts){
 	
 	var $ = jQuery;

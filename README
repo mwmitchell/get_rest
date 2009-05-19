@@ -1,0 +1,29 @@
+GetSleep - A jQuery based REST client for json/GET requests
+
+Example using the Flickr REST service:
+
+<script type="text/javascript" src="jquery.js" />
+<script type="text/javascript" src="get_sleep.jquery.js" />
+
+<script type="text/javascript">
+$(function(){
+	
+	var api_key = '';
+	var username = '';
+	
+	var m = new GetSleep({
+		base_uri : 'http://api.flickr.com/services/rest',
+		default_params : {
+			format : 'json',
+			api_key : api_key
+		}
+	});
+	
+	m.get({method : 'flickr.people.findByUsername', username : username}, function(data){
+		m.get({method : 'flickr.people.getPublicPhotos', user_id : data.user.id}, function(data){
+			alert(data.photos.total);
+		});
+	});
+	
+});
+</script>
