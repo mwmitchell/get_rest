@@ -6,7 +6,9 @@ flickr = FlickrClient.new('YOUR_API_KEY')
 var query = 'colors';
 flickr.get('photos.search', {text:query}, function(data){
 	if(data.stat=='ok'){
-		alert(data.photos.length + ' photos found');
+		alert(data.photos.total + ' photos found');
+	}else{
+		alert('something terrible has happened');
 	}
 });
 
