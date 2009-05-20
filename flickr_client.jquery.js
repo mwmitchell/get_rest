@@ -1,6 +1,6 @@
 /*
 
-FlickrClient using GetSleep
+FlickrClient using GetREST
 
 flickr = FlickrClient.new('YOUR_API_KEY')
 var query = 'colors';
@@ -25,7 +25,7 @@ var FlickrClient = function(account_api_key, user_opts){
 
 	var opts = $.extend(defaults, user_opts);
 
-	var m = new GetSleep(opts);
+	var m = new GetREST(opts);
 
 	function get(flickr_service, params, cb){
 		flickr_service = 'flickr.' + flickr_service;
