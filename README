@@ -3,7 +3,7 @@ GetREST - A jQuery based REST client for json/GET requests
 Example using the Flickr REST service:
 
 <script type="text/javascript" src="jquery.js" />
-<script type="text/javascript" src="get_sleep.jquery.js" />
+<script type="text/javascript" src="get_rest.jquery.js" />
 
 <script type="text/javascript">
 $(function(){
