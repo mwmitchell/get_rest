@@ -45,7 +45,7 @@ function GetREST(user_opts){
 		* Performs a jQuery getJSON operation.
 		* argument 1 is either a string (the resource path): '/admin'
 		* OR 
-		* an param object: {:user_id:100}
+		* a param object: {user_id:100}
 		* *if* the first argument is a string, the second can be the param object.
 		* The last argument must always be a callback function which accepts one argument (the response data)
 		*/
