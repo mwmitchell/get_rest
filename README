@@ -1,4 +1,6 @@
-GetREST - A jQuery based REST client for json/GET requests
+GetREST
+
+GetREST is a simple jQuery library for making JSON clients. Check out the Flickr and/or Solr clients for an idea of how it works.
 
 Example using the Flickr REST service:
 
