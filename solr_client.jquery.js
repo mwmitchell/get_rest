@@ -1,6 +1,6 @@
 /*
 
-SolrClient using GetSleep
+SolrClient using GetRest
 
 solr = new SolrClient('http://localhost:8983/solr')
 solr.get({q:'colors'}, function(data){
@@ -20,7 +20,7 @@ var SolrClient = function(solr_url, user_opts){
     
 	var opts = $.extend(defaults, user_opts);
     
-	var m = new GetSleep(opts);
+	var m = new GetRest(opts);
     
 	function get(handler, params, cb){
 		m.get(handler, params, cb);
